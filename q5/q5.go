@@ -3,6 +3,7 @@ package q5
 import (
 	"fmt"
 	"strings"
+	"unicode"
 )
 
 //Pedro começou a frequentar aulas de programação. Na primeira aula, sua tarefa foi escrever um programa simples. O
@@ -21,26 +22,26 @@ import (
 
 func ProcessString(s string) string {
 
-	vogais := []string{"a", "e", "i", "o", "u", "A", "E", "I", "O", "U"}
+	vogais := "aeiouAEIOU"
 
-	var entrada string
+	espaco := ""
 
-	for i := 0; i < len(vogais); i++ {
-		entrada = strings.ReplaceAll(s, vogais[i], "")
-	}
+	for _, c := range s {
 
-	for _, c := range entrada {
-		if c >= 'A' && c <= 'Z' {
-			c += 32
+		if strings.ContainsRune(vogais, c) {
+
+			continue
 		}
-	}
-	var saida string
 
-	if c >= 'a' && c <= 'z' && !strings.Contains(vogais, string(c)) {
-		saida += fmt.Sprintf(".%c", c)
-	} else {
-		saida += string(c)
+		if unicode.IsUpper(c) {
+
+			c = unicode.ToLower(c)
+
+		}
+
+		espaco += fmt.Sprintf(".%c", c)
+
 	}
 
-	return ""
+	return espaco
 }
