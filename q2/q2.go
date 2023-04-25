@@ -13,6 +13,19 @@ package q2
 //Ajude os amigos a encontrar o número de problemas para os quais eles escreverão uma solução.
 
 func ProblemsSolved(answers [][3]bool) int {
-	// Seu código aqui
-	return 0
+
+	cont := 0
+
+	for i := 0; i < len(answers); i++ {
+		contlinha := 0
+		for j := 0; j < len(answers[i]); j++ {
+			if answers[i][j] {
+				contlinha++
+			}
+		}
+		if contlinha >= 2 {
+			cont++
+		}
+	}
+	return cont
 }
