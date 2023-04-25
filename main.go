@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	possible, err := q1.DivideWatermelon(100)
+	possible, err := q1.DivideWatermelon(34)
 	fmt.Printf("Q1:\tpossible: %v,\terr: %v\n", possible, err)
 
 	solved := q2.ProblemsSolved([][3]bool{{true, true, true}, {false, false, false}, {true, false, true}})

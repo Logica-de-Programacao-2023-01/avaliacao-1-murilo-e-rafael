@@ -1,5 +1,11 @@
 package q5
 
+import (
+	"fmt"
+	"strings"
+	"unicode"
+)
+
 //Pedro começou a frequentar aulas de programação. Na primeira aula, sua tarefa foi escrever um programa simples. O
 //programa deveria fazer o seguinte: na sequência de caracteres fornecida, composta por letras latinas maiúsculas e
 //minúsculas, ele:
@@ -15,6 +21,27 @@ package q5
 //Ajude Pedro a lidar com esta tarefa fácil.
 
 func ProcessString(s string) string {
-	// Seu código aqui
-	return ""
+
+	vogais := "aeiouAEIOU"
+
+	espaco := ""
+
+	for _, c := range s {
+
+		if strings.ContainsRune(vogais, c) {
+
+			continue
+		}
+
+		if unicode.IsUpper(c) {
+
+			c = unicode.ToLower(c)
+
+		}
+
+		espaco += fmt.Sprintf(".%c", c)
+
+	}
+
+	return espaco
 }
